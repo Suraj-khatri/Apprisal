@@ -1,0 +1,4 @@
+emp_id,amount,tax_deducted_amt,narration
+1002,1000,50,test
+1003,500,25,test2
+1004,500,50,test3

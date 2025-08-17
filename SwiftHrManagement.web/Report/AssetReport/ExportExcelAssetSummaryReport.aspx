@@ -1,0 +1,10 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ExportExcelAssetSummaryReport.aspx.cs" Inherits="SwiftHrManagement.web.Report.AssetReport.ExportExcelAssetSummaryReport" %>
+
+<%      Response.ContentType = "application/vnd.ms-excel"; %>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<body>
+    <div runat="server" id="rpt"> </div>
+    
+</body>
+</html>

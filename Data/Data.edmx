@@ -1,0 +1,1326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AppraisalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ap_AappInitation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpId" Type="int" Nullable="false" />
+          <Property Name="BranchId" Type="int" Nullable="false" />
+          <Property Name="DepartId" Type="int" Nullable="false" />
+          <Property Name="currentSubUnit" Type="int" />
+          <Property Name="PositionId" Type="int" Nullable="false" />
+          <Property Name="currFuncTitle" Type="int" Nullable="false" />
+          <Property Name="joiningDate" Type="date" Nullable="false" />
+          <Property Name="confirmationDate" Type="date" Nullable="false" />
+          <Property Name="lastPromotionDate" Type="date" />
+          <Property Name="lastTransferDate" Type="date" />
+          <Property Name="appraisalStartDate" Type="date" Nullable="false" />
+          <Property Name="appraisalEndDate" Type="date" Nullable="false" />
+          <Property Name="supervisorId" Type="int" Nullable="false" />
+          <Property Name="reviewerId" Type="int" Nullable="false" />
+          <Property Name="STATUS" Type="int" />
+          <Property Name="FiscalYear" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="DeletedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Ap_Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderNumber" Type="int" Nullable="false" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+          <Property Name="Url" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="MenuLevel" Type="int" Nullable="false" />
+          <Property Name="IsIndex" Type="bit" />
+        </EntityType>
+        <EntityType Name="Ap_RegisteredUrls">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuId" Type="int" Nullable="false" />
+          <Property Name="Controller" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Action" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Operation" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Ap_RoleMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="MenuId" Type="int" Nullable="false" />
+          <Property Name="C" Type="bit" Nullable="false" />
+          <Property Name="R" Type="bit" Nullable="false" />
+          <Property Name="U" Type="bit" Nullable="false" />
+          <Property Name="D" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ap_Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsSperAdmin" Type="bit" Nullable="false" />
+          <Property Name="IsBranchAdmin" Type="bit" Nullable="false" />
+          <Property Name="IsDepartmentAdmin" Type="bit" Nullable="false" />
+          <Property Name="IsHr" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AppraisalMatrix">
+          <Key>
+            <PropertyRef Name="rowId" />
+          </Key>
+          <Property Name="rowId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="appraisalId" Type="int" Nullable="false" />
+          <Property Name="kraTopic" Type="varchar(max)" />
+          <Property Name="kpiTopic" Type="varchar(max)" />
+          <Property Name="kraWeightage" Type="float" />
+          <Property Name="kpiWeightage" Type="float" />
+          <Property Name="performanceAchievement" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="performanceRemarks" Type="varchar(max)" />
+          <Property Name="variance" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="createdBy" Type="int" Nullable="false" />
+          <Property Name="createdDate" Type="datetime" Nullable="false" />
+          <Property Name="modifiedBy" Type="int" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AppraisalPosition">
+          <Key>
+            <PropertyRef Name="RowId" />
+          </Key>
+          <Property Name="RowId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppraisalLevelId" Type="int" Nullable="false" />
+          <Property Name="PositionId" Type="int" Nullable="false" />
+          <Property Name="createdBy" Type="int" Nullable="false" />
+          <Property Name="createdDate" Type="datetime" Nullable="false" />
+          <Property Name="modifiedBy" Type="int" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AppraisalRating">
+          <Key>
+            <PropertyRef Name="RowId" />
+          </Key>
+          <Property Name="RowId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatrixType" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="MatrixId" Type="int" Nullable="false" />
+          <Property Name="AppraisalId" Type="int" Nullable="false" />
+          <Property Name="Score" Type="float" />
+          <Property Name="Remarks" Type="varchar" MaxLength="200" />
+          <Property Name="Status" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Ratingby" Type="int" Nullable="false" />
+          <Property Name="RatingDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ApprisalStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="Code" Type="int" />
+          <Property Name="StatusGroup" Type="int" />
+        </EntityType>
+        <EntityType Name="Authentication">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpId" Type="int" />
+          <Property Name="FullName" Type="varchar" MaxLength="500" />
+          <Property Name="EmailId" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Token" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Salt" Type="varchar" MaxLength="500" />
+          <Property Name="ActivationCode" Type="uniqueidentifier" />
+          <Property Name="WrongAttempt" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="BranchId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Isblocked" Type="bit" Nullable="false" />
+          <Property Name="LastLogin" Type="datetime" />
+          <Property Name="LastUpdated" Type="datetime" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Appraisal.dbo.Branches' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Branches">
+          <Key>
+            <PropertyRef Name="BRANCH_ID" />
+          </Key>
+          <Property Name="BRANCH_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COMPANY_ID" Type="int" />
+          <Property Name="BRANCH_NAME" Type="varchar" MaxLength="500" />
+          <Property Name="BRANCH_SHORT_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="BRANCH_CITY" Type="varchar" MaxLength="100" />
+          <Property Name="BRANCH_ADDRESS" Type="varchar" MaxLength="1000" />
+          <Property Name="BRANCH_PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="BRANCH_FAX" Type="varchar" MaxLength="50" />
+          <Property Name="BRANCH_POST_BOX" Type="varchar" MaxLength="50" />
+          <Property Name="EPS" Type="varchar" MaxLength="50" />
+          <Property Name="BRANCH_MOBILE" Type="varchar" MaxLength="50" />
+          <Property Name="BRANCH_EMAIL" Type="varchar" MaxLength="150" />
+          <Property Name="BRANCH_COUNTRY" Type="varchar" MaxLength="50" />
+          <Property Name="BRANCH_ZONE" Type="varchar" MaxLength="50" />
+          <Property Name="BRANCH_DISTRICT" Type="varchar" MaxLength="50" />
+          <Property Name="CONTACT_PERSON" Type="varchar" MaxLength="200" />
+          <Property Name="CREATED_BY" Type="varchar" MaxLength="50" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_BY" Type="varchar" MaxLength="50" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Appraisal.dbo.Departments' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="DEPARTMENT_ID" />
+          </Key>
+          <Property Name="DEPARTMENT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BRANCH_ID" Type="int" />
+          <Property Name="DEPARTMENT_SHORT_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DEPARTMENT_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="PHONE_EXTENSION" Type="varchar" MaxLength="10" />
+          <Property Name="PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="FAX" Type="varchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="150" />
+          <Property Name="DEPARTMENT_HEAD" Type="int" />
+          <Property Name="MOBILE_DEPARTMENT_HEAD" Type="varchar" MaxLength="50" />
+          <Property Name="EMAIL_DEPARTMENT_HEAD" Type="varchar" MaxLength="150" />
+          <Property Name="CREATED_BY" Type="varchar" MaxLength="50" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_BY" Type="varchar" MaxLength="50" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="STATIC_ID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Appraisal.dbo.Employee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EMPLOYEE_ID" />
+          </Key>
+          <Property Name="EMPLOYEE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EMP_CODE" Type="varchar" MaxLength="30" />
+          <Property Name="SALUTATION" Type="varchar" MaxLength="50" />
+          <Property Name="FIRST_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="MIDDLE_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="OFFICE_PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="HOME_PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="OFFICE_MOBILE" Type="varchar" MaxLength="50" />
+          <Property Name="PERSONAL_MOBILE" Type="varchar" MaxLength="50" />
+          <Property Name="OFFICE_FAX" Type="varchar" MaxLength="50" />
+          <Property Name="PERSONAL_FAX" Type="varchar" MaxLength="50" />
+          <Property Name="OFFICIAL_EMAIL" Type="varchar" MaxLength="500" />
+          <Property Name="PERSONAL_EMAIL" Type="varchar" MaxLength="200" />
+          <Property Name="GENDER" Type="varchar" MaxLength="8" />
+          <Property Name="DEPARTMENT_ID" Type="int" />
+          <Property Name="BRANCH_ID" Type="int" />
+          <Property Name="POSITION_ID" Type="int" />
+          <Property Name="BLOOD_GROUP" Type="varchar" MaxLength="50" />
+          <Property Name="NATIONALITY" Type="varchar" MaxLength="100" />
+          <Property Name="DRIVARY_LICENCE_NUMBER" Type="varchar" MaxLength="100" />
+          <Property Name="PASSPORT_NUMBER" Type="varchar" MaxLength="100" />
+          <Property Name="BIRTH_DATE" Type="date" />
+          <Property Name="JOINED_DATE" Type="date" />
+          <Property Name="MERITAL_STATUS" Type="varchar" MaxLength="50" />
+          <Property Name="PAN_NUMBER" Type="varchar" MaxLength="50" />
+          <Property Name="MAP_CODE" Type="varchar" MaxLength="20" />
+          <Property Name="CREATED_BY" Type="varchar" MaxLength="100" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_BY" Type="varchar" MaxLength="100" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="TEMP_STREET_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="TEMP_WARD_NO" Type="int" />
+          <Property Name="TEMP_HOUSE_NO" Type="varchar" MaxLength="50" />
+          <Property Name="TEMP_MUNICIPALITY_VDC" Type="varchar" MaxLength="200" />
+          <Property Name="TEMP_DISTRICT" Type="varchar" MaxLength="100" />
+          <Property Name="TEMP_ZONE" Type="varchar" MaxLength="100" />
+          <Property Name="TEMP_COUNTRY" Type="varchar" MaxLength="100" />
+          <Property Name="PER_STREET_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="PER_WARD_NO" Type="int" />
+          <Property Name="PER_HOUSE_NO" Type="varchar" MaxLength="50" />
+          <Property Name="PER_MUNICIPALITY_VDC" Type="varchar" MaxLength="200" />
+          <Property Name="PER_DISTRICT" Type="varchar" MaxLength="100" />
+          <Property Name="PER_ZONE" Type="varchar" MaxLength="100" />
+          <Property Name="PER_COUNTRY" Type="varchar" MaxLength="100" />
+          <Property Name="AVAAILED_VEHICLE_FACILITY" Type="varchar" MaxLength="50" />
+          <Property Name="AVAILED_HOUSE_RENT_FACILITY" Type="varchar" MaxLength="50" />
+          <Property Name="IS_PENSION_HOLDER" Type="varchar" MaxLength="50" />
+          <Property Name="IS_DISABLED" Type="varchar" MaxLength="50" />
+          <Property Name="PENSION_AMOUNT" Type="real" />
+          <Property Name="DISABLED_ID" Type="int" />
+          <Property Name="EMP_STATUS" Type="varchar" MaxLength="50" />
+          <Property Name="EMP_TYPE" Type="varchar" MaxLength="50" />
+          <Property Name="MARITAL_STATUS" Type="varchar" MaxLength="10" />
+          <Property Name="APPOINTMENT_DATE" Type="date" />
+          <Property Name="EM_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="EM_ADDRESS" Type="varchar" MaxLength="1000" />
+          <Property Name="EM_RELATIONSHIP" Type="varchar" MaxLength="100" />
+          <Property Name="EM_CONTACTNO1" Type="varchar" MaxLength="50" />
+          <Property Name="EM_CONTACTNO2" Type="varchar" MaxLength="50" />
+          <Property Name="EM_CONTACTNO3" Type="varchar" MaxLength="50" />
+          <Property Name="EM_EMAIL" Type="varchar" MaxLength="100" />
+          <Property Name="EXTENSION_NUMBER" Type="int" />
+          <Property Name="WORKING_MONTH" Type="int" />
+          <Property Name="FUNCTIONAL_TITLE" Type="int" />
+          <Property Name="PERMANENT_DATE" Type="date" />
+          <Property Name="SYSTEM_ID" Type="varchar" MaxLength="50" />
+          <Property Name="Individual_Profile_update" Type="varchar" MaxLength="10" />
+          <Property Name="C_START_DATE" Type="date" />
+          <Property Name="C_END_DATE" Type="date" />
+          <Property Name="CARD_NUMBER" Type="varchar(max)" />
+          <Property Name="GRATUITY_EFFECTIVE_DATE" Type="date" />
+          <Property Name="EDUCATION_DETAILS" Type="varchar(max)" />
+          <Property Name="OUTSOURCE_COMPANY" Type="varchar(max)" />
+          <Property Name="ATT_CARD_ID" Type="varchar" MaxLength="200" />
+          <Property Name="Salary_Title" Type="int" />
+          <Property Name="Rl_group" Type="char" MaxLength="1" />
+          <Property Name="GRADE" Type="float" />
+          <Property Name="LASTPROMOTED" Type="date" />
+          <Property Name="birthdayFlag" Type="char" MaxLength="1" />
+          <Property Name="EM_NAME2" Type="varchar" MaxLength="200" />
+          <Property Name="EM_ADDRESS2" Type="varchar" MaxLength="1000" />
+          <Property Name="EM_RELATIONSHIP2" Type="varchar" MaxLength="100" />
+          <Property Name="EM_CONTACTNO1_2" Type="varchar" MaxLength="50" />
+          <Property Name="EM_CONTACTNO2_2" Type="varchar" MaxLength="50" />
+          <Property Name="EM_CONTACTNO3_2" Type="varchar" MaxLength="50" />
+          <Property Name="EM_EMAIL2" Type="varchar" MaxLength="100" />
+          <Property Name="SUB_DEPARTMENT" Type="int" />
+          <Property Name="SUB_DEPARTMENT2" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Appraisal.dbo.SuperVisroAssignment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SuperVisroAssignment">
+          <Key>
+            <PropertyRef Name="SV_ASSIGN_ID" />
+          </Key>
+          <Property Name="SV_ASSIGN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BRANCH" Type="int" />
+          <Property Name="DEPT" Type="int" />
+          <Property Name="EMP" Type="int" />
+          <Property Name="SUPERVISOR" Type="int" />
+          <Property Name="SUPERVISOR_TYPE" Type="varchar" MaxLength="1" />
+          <Property Name="OPERATION_TYPE" Type="varchar" MaxLength="1" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="CREATED_DATE" Type="date" />
+          <Property Name="MODIFY_BY" Type="int" />
+          <Property Name="MODIFY_DATE" Type="date" />
+          <Property Name="record_status" Type="char" MaxLength="1" />
+          <Property Name="POSITION" Type="int" />
+          <Property Name="EMP_TYPE" Type="int" />
+        </EntityType>
+        <Association Name="fk_appraisalInitation">
+          <End Role="Ap_AappInitation" Type="Self.Ap_AappInitation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AppraisalMatrix" Type="Self.AppraisalMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ap_AappInitation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AppraisalMatrix">
+              <PropertyRef Name="appraisalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auth_RoleId">
+          <End Role="Ap_Roles" Type="Self.Ap_Roles" Multiplicity="1" />
+          <End Role="Authentication" Type="Self.Authentication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ap_Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Authentication">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenudForMenurole">
+          <End Role="Ap_Menu" Type="Self.Ap_Menu" Multiplicity="1" />
+          <End Role="Ap_RoleMenu" Type="Self.Ap_RoleMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ap_Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ap_RoleMenu">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuRoleId">
+          <End Role="Ap_Roles" Type="Self.Ap_Roles" Multiplicity="1" />
+          <End Role="Ap_RoleMenu" Type="Self.Ap_RoleMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ap_Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ap_RoleMenu">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AppraisalModelStoreContainer">
+          <EntitySet Name="Ap_AappInitation" EntityType="Self.Ap_AappInitation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ap_Menu" EntityType="Self.Ap_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ap_RegisteredUrls" EntityType="Self.Ap_RegisteredUrls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ap_RoleMenu" EntityType="Self.Ap_RoleMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ap_Roles" EntityType="Self.Ap_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppraisalMatrix" EntityType="Self.AppraisalMatrix" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppraisalPosition" EntityType="Self.AppraisalPosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppraisalRating" EntityType="Self.AppraisalRating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApprisalStatus" EntityType="Self.ApprisalStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Authentication" EntityType="Self.Authentication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Branches" EntityType="Self.Branches" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Branches].[BRANCH_ID] AS [BRANCH_ID], 
+    [Branches].[COMPANY_ID] AS [COMPANY_ID], 
+    [Branches].[BRANCH_NAME] AS [BRANCH_NAME], 
+    [Branches].[BRANCH_SHORT_NAME] AS [BRANCH_SHORT_NAME], 
+    [Branches].[BRANCH_CITY] AS [BRANCH_CITY], 
+    [Branches].[BRANCH_ADDRESS] AS [BRANCH_ADDRESS], 
+    [Branches].[BRANCH_PHONE] AS [BRANCH_PHONE], 
+    [Branches].[BRANCH_FAX] AS [BRANCH_FAX], 
+    [Branches].[BRANCH_POST_BOX] AS [BRANCH_POST_BOX], 
+    [Branches].[EPS] AS [EPS], 
+    [Branches].[BRANCH_MOBILE] AS [BRANCH_MOBILE], 
+    [Branches].[BRANCH_EMAIL] AS [BRANCH_EMAIL], 
+    [Branches].[BRANCH_COUNTRY] AS [BRANCH_COUNTRY], 
+    [Branches].[BRANCH_ZONE] AS [BRANCH_ZONE], 
+    [Branches].[BRANCH_DISTRICT] AS [BRANCH_DISTRICT], 
+    [Branches].[CONTACT_PERSON] AS [CONTACT_PERSON], 
+    [Branches].[CREATED_BY] AS [CREATED_BY], 
+    [Branches].[CREATED_DATE] AS [CREATED_DATE], 
+    [Branches].[MODIFIED_BY] AS [MODIFIED_BY], 
+    [Branches].[MODIFIED_DATE] AS [MODIFIED_DATE]
+    FROM [dbo].[Branches] AS [Branches]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Departments" EntityType="Self.Departments" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Departments].[DEPARTMENT_ID] AS [DEPARTMENT_ID], 
+    [Departments].[BRANCH_ID] AS [BRANCH_ID], 
+    [Departments].[DEPARTMENT_SHORT_NAME] AS [DEPARTMENT_SHORT_NAME], 
+    [Departments].[DEPARTMENT_NAME] AS [DEPARTMENT_NAME], 
+    [Departments].[PHONE_EXTENSION] AS [PHONE_EXTENSION], 
+    [Departments].[PHONE] AS [PHONE], 
+    [Departments].[FAX] AS [FAX], 
+    [Departments].[EMAIL] AS [EMAIL], 
+    [Departments].[DEPARTMENT_HEAD] AS [DEPARTMENT_HEAD], 
+    [Departments].[MOBILE_DEPARTMENT_HEAD] AS [MOBILE_DEPARTMENT_HEAD], 
+    [Departments].[EMAIL_DEPARTMENT_HEAD] AS [EMAIL_DEPARTMENT_HEAD], 
+    [Departments].[CREATED_BY] AS [CREATED_BY], 
+    [Departments].[CREATED_DATE] AS [CREATED_DATE], 
+    [Departments].[MODIFIED_BY] AS [MODIFIED_BY], 
+    [Departments].[MODIFIED_DATE] AS [MODIFIED_DATE], 
+    [Departments].[STATIC_ID] AS [STATIC_ID]
+    FROM [dbo].[Departments] AS [Departments]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Employee" EntityType="Self.Employee" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Employee].[EMPLOYEE_ID] AS [EMPLOYEE_ID], 
+    [Employee].[EMP_CODE] AS [EMP_CODE], 
+    [Employee].[SALUTATION] AS [SALUTATION], 
+    [Employee].[FIRST_NAME] AS [FIRST_NAME], 
+    [Employee].[MIDDLE_NAME] AS [MIDDLE_NAME], 
+    [Employee].[LAST_NAME] AS [LAST_NAME], 
+    [Employee].[OFFICE_PHONE] AS [OFFICE_PHONE], 
+    [Employee].[HOME_PHONE] AS [HOME_PHONE], 
+    [Employee].[OFFICE_MOBILE] AS [OFFICE_MOBILE], 
+    [Employee].[PERSONAL_MOBILE] AS [PERSONAL_MOBILE], 
+    [Employee].[OFFICE_FAX] AS [OFFICE_FAX], 
+    [Employee].[PERSONAL_FAX] AS [PERSONAL_FAX], 
+    [Employee].[OFFICIAL_EMAIL] AS [OFFICIAL_EMAIL], 
+    [Employee].[PERSONAL_EMAIL] AS [PERSONAL_EMAIL], 
+    [Employee].[GENDER] AS [GENDER], 
+    [Employee].[DEPARTMENT_ID] AS [DEPARTMENT_ID], 
+    [Employee].[BRANCH_ID] AS [BRANCH_ID], 
+    [Employee].[POSITION_ID] AS [POSITION_ID], 
+    [Employee].[BLOOD_GROUP] AS [BLOOD_GROUP], 
+    [Employee].[NATIONALITY] AS [NATIONALITY], 
+    [Employee].[DRIVARY_LICENCE_NUMBER] AS [DRIVARY_LICENCE_NUMBER], 
+    [Employee].[PASSPORT_NUMBER] AS [PASSPORT_NUMBER], 
+    [Employee].[BIRTH_DATE] AS [BIRTH_DATE], 
+    [Employee].[JOINED_DATE] AS [JOINED_DATE], 
+    [Employee].[MERITAL_STATUS] AS [MERITAL_STATUS], 
+    [Employee].[PAN_NUMBER] AS [PAN_NUMBER], 
+    [Employee].[MAP_CODE] AS [MAP_CODE], 
+    [Employee].[CREATED_BY] AS [CREATED_BY], 
+    [Employee].[CREATED_DATE] AS [CREATED_DATE], 
+    [Employee].[MODIFIED_BY] AS [MODIFIED_BY], 
+    [Employee].[MODIFIED_DATE] AS [MODIFIED_DATE], 
+    [Employee].[TEMP_STREET_NAME] AS [TEMP_STREET_NAME], 
+    [Employee].[TEMP_WARD_NO] AS [TEMP_WARD_NO], 
+    [Employee].[TEMP_HOUSE_NO] AS [TEMP_HOUSE_NO], 
+    [Employee].[TEMP_MUNICIPALITY_VDC] AS [TEMP_MUNICIPALITY_VDC], 
+    [Employee].[TEMP_DISTRICT] AS [TEMP_DISTRICT], 
+    [Employee].[TEMP_ZONE] AS [TEMP_ZONE], 
+    [Employee].[TEMP_COUNTRY] AS [TEMP_COUNTRY], 
+    [Employee].[PER_STREET_NAME] AS [PER_STREET_NAME], 
+    [Employee].[PER_WARD_NO] AS [PER_WARD_NO], 
+    [Employee].[PER_HOUSE_NO] AS [PER_HOUSE_NO], 
+    [Employee].[PER_MUNICIPALITY_VDC] AS [PER_MUNICIPALITY_VDC], 
+    [Employee].[PER_DISTRICT] AS [PER_DISTRICT], 
+    [Employee].[PER_ZONE] AS [PER_ZONE], 
+    [Employee].[PER_COUNTRY] AS [PER_COUNTRY], 
+    [Employee].[AVAAILED_VEHICLE_FACILITY] AS [AVAAILED_VEHICLE_FACILITY], 
+    [Employee].[AVAILED_HOUSE_RENT_FACILITY] AS [AVAILED_HOUSE_RENT_FACILITY], 
+    [Employee].[IS_PENSION_HOLDER] AS [IS_PENSION_HOLDER], 
+    [Employee].[IS_DISABLED] AS [IS_DISABLED], 
+    [Employee].[PENSION_AMOUNT] AS [PENSION_AMOUNT], 
+    [Employee].[DISABLED_ID] AS [DISABLED_ID], 
+    [Employee].[EMP_STATUS] AS [EMP_STATUS], 
+    [Employee].[EMP_TYPE] AS [EMP_TYPE], 
+    [Employee].[MARITAL_STATUS] AS [MARITAL_STATUS], 
+    [Employee].[APPOINTMENT_DATE] AS [APPOINTMENT_DATE], 
+    [Employee].[EM_NAME] AS [EM_NAME], 
+    [Employee].[EM_ADDRESS] AS [EM_ADDRESS], 
+    [Employee].[EM_RELATIONSHIP] AS [EM_RELATIONSHIP], 
+    [Employee].[EM_CONTACTNO1] AS [EM_CONTACTNO1], 
+    [Employee].[EM_CONTACTNO2] AS [EM_CONTACTNO2], 
+    [Employee].[EM_CONTACTNO3] AS [EM_CONTACTNO3], 
+    [Employee].[EM_EMAIL] AS [EM_EMAIL], 
+    [Employee].[EXTENSION_NUMBER] AS [EXTENSION_NUMBER], 
+    [Employee].[WORKING_MONTH] AS [WORKING_MONTH], 
+    [Employee].[FUNCTIONAL_TITLE] AS [FUNCTIONAL_TITLE], 
+    [Employee].[PERMANENT_DATE] AS [PERMANENT_DATE], 
+    [Employee].[SYSTEM_ID] AS [SYSTEM_ID], 
+    [Employee].[Individual_Profile_update] AS [Individual_Profile_update], 
+    [Employee].[C_START_DATE] AS [C_START_DATE], 
+    [Employee].[C_END_DATE] AS [C_END_DATE], 
+    [Employee].[CARD_NUMBER] AS [CARD_NUMBER], 
+    [Employee].[GRATUITY_EFFECTIVE_DATE] AS [GRATUITY_EFFECTIVE_DATE], 
+    [Employee].[EDUCATION_DETAILS] AS [EDUCATION_DETAILS], 
+    [Employee].[OUTSOURCE_COMPANY] AS [OUTSOURCE_COMPANY], 
+    [Employee].[ATT_CARD_ID] AS [ATT_CARD_ID], 
+    [Employee].[Salary_Title] AS [Salary_Title], 
+    [Employee].[Rl_group] AS [Rl_group], 
+    [Employee].[GRADE] AS [GRADE], 
+    [Employee].[LASTPROMOTED] AS [LASTPROMOTED], 
+    [Employee].[birthdayFlag] AS [birthdayFlag], 
+    [Employee].[EM_NAME2] AS [EM_NAME2], 
+    [Employee].[EM_ADDRESS2] AS [EM_ADDRESS2], 
+    [Employee].[EM_RELATIONSHIP2] AS [EM_RELATIONSHIP2], 
+    [Employee].[EM_CONTACTNO1_2] AS [EM_CONTACTNO1_2], 
+    [Employee].[EM_CONTACTNO2_2] AS [EM_CONTACTNO2_2], 
+    [Employee].[EM_CONTACTNO3_2] AS [EM_CONTACTNO3_2], 
+    [Employee].[EM_EMAIL2] AS [EM_EMAIL2], 
+    [Employee].[SUB_DEPARTMENT] AS [SUB_DEPARTMENT], 
+    [Employee].[SUB_DEPARTMENT2] AS [SUB_DEPARTMENT2]
+    FROM [dbo].[Employee] AS [Employee]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SuperVisroAssignment" EntityType="Self.SuperVisroAssignment" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SuperVisroAssignment].[SV_ASSIGN_ID] AS [SV_ASSIGN_ID], 
+    [SuperVisroAssignment].[BRANCH] AS [BRANCH], 
+    [SuperVisroAssignment].[DEPT] AS [DEPT], 
+    [SuperVisroAssignment].[EMP] AS [EMP], 
+    [SuperVisroAssignment].[SUPERVISOR] AS [SUPERVISOR], 
+    [SuperVisroAssignment].[SUPERVISOR_TYPE] AS [SUPERVISOR_TYPE], 
+    [SuperVisroAssignment].[OPERATION_TYPE] AS [OPERATION_TYPE], 
+    [SuperVisroAssignment].[CREATED_BY] AS [CREATED_BY], 
+    [SuperVisroAssignment].[CREATED_DATE] AS [CREATED_DATE], 
+    [SuperVisroAssignment].[MODIFY_BY] AS [MODIFY_BY], 
+    [SuperVisroAssignment].[MODIFY_DATE] AS [MODIFY_DATE], 
+    [SuperVisroAssignment].[record_status] AS [record_status], 
+    [SuperVisroAssignment].[POSITION] AS [POSITION], 
+    [SuperVisroAssignment].[EMP_TYPE] AS [EMP_TYPE]
+    FROM [dbo].[SuperVisroAssignment] AS [SuperVisroAssignment]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_appraisalInitation" Association="Self.fk_appraisalInitation">
+            <End Role="Ap_AappInitation" EntitySet="Ap_AappInitation" />
+            <End Role="AppraisalMatrix" EntitySet="AppraisalMatrix" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auth_RoleId" Association="Self.FK_Auth_RoleId">
+            <End Role="Ap_Roles" EntitySet="Ap_Roles" />
+            <End Role="Authentication" EntitySet="Authentication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenudForMenurole" Association="Self.FK_MenudForMenurole">
+            <End Role="Ap_Menu" EntitySet="Ap_Menu" />
+            <End Role="Ap_RoleMenu" EntitySet="Ap_RoleMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuRoleId" Association="Self.FK_MenuRoleId">
+            <End Role="Ap_Roles" EntitySet="Ap_Roles" />
+            <End Role="Ap_RoleMenu" EntitySet="Ap_RoleMenu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AppraisalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ap_AappInitation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpId" Type="Int32" Nullable="false" />
+          <Property Name="BranchId" Type="Int32" Nullable="false" />
+          <Property Name="DepartId" Type="Int32" Nullable="false" />
+          <Property Name="currentSubUnit" Type="Int32" />
+          <Property Name="PositionId" Type="Int32" Nullable="false" />
+          <Property Name="currFuncTitle" Type="Int32" Nullable="false" />
+          <Property Name="joiningDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="confirmationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="lastPromotionDate" Type="DateTime" Precision="0" />
+          <Property Name="lastTransferDate" Type="DateTime" Precision="0" />
+          <Property Name="appraisalStartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="appraisalEndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="supervisorId" Type="Int32" Nullable="false" />
+          <Property Name="reviewerId" Type="Int32" Nullable="false" />
+          <Property Name="STATUS" Type="Int32" />
+          <Property Name="FiscalYear" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="Int32" />
+          <NavigationProperty Name="AppraisalMatrices" Relationship="Self.fk_appraisalInitation" FromRole="Ap_AappInitation" ToRole="AppraisalMatrix" />
+        </EntityType>
+        <EntityType Name="Ap_Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+          <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="MenuLevel" Type="Int32" Nullable="false" />
+          <Property Name="IsIndex" Type="Boolean" />
+          <NavigationProperty Name="Ap_RoleMenu" Relationship="Self.FK_MenudForMenurole" FromRole="Ap_Menu" ToRole="Ap_RoleMenu" />
+        </EntityType>
+        <EntityType Name="Ap_RegisteredUrls">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuId" Type="Int32" Nullable="false" />
+          <Property Name="Controller" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Operation" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Ap_RoleMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="MenuId" Type="Int32" Nullable="false" />
+          <Property Name="C" Type="Boolean" Nullable="false" />
+          <Property Name="R" Type="Boolean" Nullable="false" />
+          <Property Name="U" Type="Boolean" Nullable="false" />
+          <Property Name="D" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ap_Menu" Relationship="Self.FK_MenudForMenurole" FromRole="Ap_RoleMenu" ToRole="Ap_Menu" />
+          <NavigationProperty Name="Ap_Roles" Relationship="Self.FK_MenuRoleId" FromRole="Ap_RoleMenu" ToRole="Ap_Roles" />
+        </EntityType>
+        <EntityType Name="Ap_Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsSperAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="IsBranchAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="IsDepartmentAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="IsHr" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ap_RoleMenu" Relationship="Self.FK_MenuRoleId" FromRole="Ap_Roles" ToRole="Ap_RoleMenu" />
+          <NavigationProperty Name="Authentications" Relationship="Self.FK_Auth_RoleId" FromRole="Ap_Roles" ToRole="Authentication" />
+        </EntityType>
+        <EntityType Name="AppraisalMatrix">
+          <Key>
+            <PropertyRef Name="rowId" />
+          </Key>
+          <Property Name="rowId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="appraisalId" Type="Int32" Nullable="false" />
+          <Property Name="kraTopic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="kpiTopic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="kraWeightage" Type="Double" />
+          <Property Name="kpiWeightage" Type="Double" />
+          <Property Name="performanceAchievement" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="performanceRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="variance" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="createdBy" Type="Int32" Nullable="false" />
+          <Property Name="createdDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modifiedBy" Type="Int32" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Ap_AappInitation" Relationship="Self.fk_appraisalInitation" FromRole="AppraisalMatrix" ToRole="Ap_AappInitation" />
+        </EntityType>
+        <EntityType Name="AppraisalPosition">
+          <Key>
+            <PropertyRef Name="RowId" />
+          </Key>
+          <Property Name="RowId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppraisalLevelId" Type="Int32" Nullable="false" />
+          <Property Name="PositionId" Type="Int32" Nullable="false" />
+          <Property Name="createdBy" Type="Int32" Nullable="false" />
+          <Property Name="createdDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modifiedBy" Type="Int32" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="AppraisalRating">
+          <Key>
+            <PropertyRef Name="RowId" />
+          </Key>
+          <Property Name="RowId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatrixType" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MatrixId" Type="Int32" Nullable="false" />
+          <Property Name="AppraisalId" Type="Int32" Nullable="false" />
+          <Property Name="Score" Type="Double" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ratingby" Type="Int32" Nullable="false" />
+          <Property Name="RatingDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="ApprisalStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="Int32" />
+          <Property Name="StatusGroup" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Authentication">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpId" Type="Int32" />
+          <Property Name="FullName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EmailId" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Token" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Salt" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ActivationCode" Type="Guid" />
+          <Property Name="WrongAttempt" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="BranchId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Isblocked" Type="Boolean" Nullable="false" />
+          <Property Name="LastLogin" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Ap_Roles" Relationship="Self.FK_Auth_RoleId" FromRole="Authentication" ToRole="Ap_Roles" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BRANCH_ID" />
+          </Key>
+          <Property Name="BRANCH_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COMPANY_ID" Type="Int32" />
+          <Property Name="BRANCH_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="BRANCH_SHORT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BRANCH_CITY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BRANCH_ADDRESS" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="BRANCH_PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BRANCH_FAX" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BRANCH_POST_BOX" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EPS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BRANCH_MOBILE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BRANCH_EMAIL" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="BRANCH_COUNTRY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BRANCH_ZONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BRANCH_DISTRICT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_PERSON" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DEPARTMENT_ID" />
+          </Key>
+          <Property Name="DEPARTMENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BRANCH_ID" Type="Int32" />
+          <Property Name="DEPARTMENT_SHORT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DEPARTMENT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE_EXTENSION" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FAX" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DEPARTMENT_HEAD" Type="Int32" />
+          <Property Name="MOBILE_DEPARTMENT_HEAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL_DEPARTMENT_HEAD" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="STATIC_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EMPLOYEE_ID" />
+          </Key>
+          <Property Name="EMPLOYEE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMP_CODE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SALUTATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MIDDLE_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OFFICE_PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HOME_PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OFFICE_MOBILE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONAL_MOBILE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OFFICE_FAX" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONAL_FAX" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OFFICIAL_EMAIL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONAL_EMAIL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="GENDER" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="DEPARTMENT_ID" Type="Int32" />
+          <Property Name="BRANCH_ID" Type="Int32" />
+          <Property Name="POSITION_ID" Type="Int32" />
+          <Property Name="BLOOD_GROUP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NATIONALITY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DRIVARY_LICENCE_NUMBER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PASSPORT_NUMBER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BIRTH_DATE" Type="DateTime" Precision="0" />
+          <Property Name="JOINED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="MERITAL_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAN_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MAP_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_BY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="TEMP_STREET_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TEMP_WARD_NO" Type="Int32" />
+          <Property Name="TEMP_HOUSE_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TEMP_MUNICIPALITY_VDC" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TEMP_DISTRICT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TEMP_ZONE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TEMP_COUNTRY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PER_STREET_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PER_WARD_NO" Type="Int32" />
+          <Property Name="PER_HOUSE_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PER_MUNICIPALITY_VDC" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PER_DISTRICT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PER_ZONE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PER_COUNTRY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AVAAILED_VEHICLE_FACILITY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AVAILED_HOUSE_RENT_FACILITY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IS_PENSION_HOLDER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IS_DISABLED" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PENSION_AMOUNT" Type="Single" />
+          <Property Name="DISABLED_ID" Type="Int32" />
+          <Property Name="EMP_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MARITAL_STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="APPOINTMENT_DATE" Type="DateTime" Precision="0" />
+          <Property Name="EM_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="EM_ADDRESS" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="EM_RELATIONSHIP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EM_CONTACTNO1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EM_CONTACTNO2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EM_CONTACTNO3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EM_EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EXTENSION_NUMBER" Type="Int32" />
+          <Property Name="WORKING_MONTH" Type="Int32" />
+          <Property Name="FUNCTIONAL_TITLE" Type="Int32" />
+          <Property Name="PERMANENT_DATE" Type="DateTime" Precision="0" />
+          <Property Name="SYSTEM_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Individual_Profile_update" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="C_START_DATE" Type="DateTime" Precision="0" />
+          <Property Name="C_END_DATE" Type="DateTime" Precision="0" />
+          <Property Name="CARD_NUMBER" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="GRATUITY_EFFECTIVE_DATE" Type="DateTime" Precision="0" />
+          <Property Name="EDUCATION_DETAILS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OUTSOURCE_COMPANY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ATT_CARD_ID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Salary_Title" Type="Int32" />
+          <Property Name="Rl_group" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="GRADE" Type="Double" />
+          <Property Name="LASTPROMOTED" Type="DateTime" Precision="0" />
+          <Property Name="birthdayFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="EM_NAME2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="EM_ADDRESS2" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="EM_RELATIONSHIP2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EM_CONTACTNO1_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EM_CONTACTNO2_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EM_CONTACTNO3_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EM_EMAIL2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SUB_DEPARTMENT" Type="Int32" />
+          <Property Name="SUB_DEPARTMENT2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SuperVisroAssignment">
+          <Key>
+            <PropertyRef Name="SV_ASSIGN_ID" />
+          </Key>
+          <Property Name="SV_ASSIGN_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BRANCH" Type="Int32" />
+          <Property Name="DEPT" Type="Int32" />
+          <Property Name="EMP" Type="Int32" />
+          <Property Name="SUPERVISOR" Type="Int32" />
+          <Property Name="SUPERVISOR_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OPERATION_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="MODIFY_BY" Type="Int32" />
+          <Property Name="MODIFY_DATE" Type="DateTime" Precision="0" />
+          <Property Name="record_status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="POSITION" Type="Int32" />
+          <Property Name="EMP_TYPE" Type="Int32" />
+        </EntityType>
+        <Association Name="fk_appraisalInitation">
+          <End Role="Ap_AappInitation" Type="Self.Ap_AappInitation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AppraisalMatrix" Type="Self.AppraisalMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ap_AappInitation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AppraisalMatrix">
+              <PropertyRef Name="appraisalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenudForMenurole">
+          <End Role="Ap_Menu" Type="Self.Ap_Menu" Multiplicity="1" />
+          <End Role="Ap_RoleMenu" Type="Self.Ap_RoleMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ap_Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ap_RoleMenu">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuRoleId">
+          <End Role="Ap_Roles" Type="Self.Ap_Roles" Multiplicity="1" />
+          <End Role="Ap_RoleMenu" Type="Self.Ap_RoleMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ap_Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ap_RoleMenu">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auth_RoleId">
+          <End Role="Ap_Roles" Type="Self.Ap_Roles" Multiplicity="1" />
+          <End Role="Authentication" Type="Self.Authentication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ap_Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Authentication">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AppraisalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ap_AappInitation" EntityType="Self.Ap_AappInitation" />
+          <EntitySet Name="Ap_Menu" EntityType="Self.Ap_Menu" />
+          <EntitySet Name="Ap_RegisteredUrls" EntityType="Self.Ap_RegisteredUrls" />
+          <EntitySet Name="Ap_RoleMenu" EntityType="Self.Ap_RoleMenu" />
+          <EntitySet Name="Ap_Roles" EntityType="Self.Ap_Roles" />
+          <EntitySet Name="AppraisalMatrices" EntityType="Self.AppraisalMatrix" />
+          <EntitySet Name="AppraisalPositions" EntityType="Self.AppraisalPosition" />
+          <EntitySet Name="AppraisalRatings" EntityType="Self.AppraisalRating" />
+          <EntitySet Name="ApprisalStatus" EntityType="Self.ApprisalStatu" />
+          <EntitySet Name="Authentications" EntityType="Self.Authentication" />
+          <EntitySet Name="Branches" EntityType="Self.Branch" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="SuperVisroAssignments" EntityType="Self.SuperVisroAssignment" />
+          <AssociationSet Name="fk_appraisalInitation" Association="Self.fk_appraisalInitation">
+            <End Role="Ap_AappInitation" EntitySet="Ap_AappInitation" />
+            <End Role="AppraisalMatrix" EntitySet="AppraisalMatrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenudForMenurole" Association="Self.FK_MenudForMenurole">
+            <End Role="Ap_Menu" EntitySet="Ap_Menu" />
+            <End Role="Ap_RoleMenu" EntitySet="Ap_RoleMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuRoleId" Association="Self.FK_MenuRoleId">
+            <End Role="Ap_Roles" EntitySet="Ap_Roles" />
+            <End Role="Ap_RoleMenu" EntitySet="Ap_RoleMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auth_RoleId" Association="Self.FK_Auth_RoleId">
+            <End Role="Ap_Roles" EntitySet="Ap_Roles" />
+            <End Role="Authentication" EntitySet="Authentications" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AppraisalModelStoreContainer" CdmEntityContainer="AppraisalEntities">
+          <EntitySetMapping Name="Ap_AappInitation">
+            <EntityTypeMapping TypeName="AppraisalModel.Ap_AappInitation">
+              <MappingFragment StoreEntitySet="Ap_AappInitation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="DepartId" ColumnName="DepartId" />
+                <ScalarProperty Name="currentSubUnit" ColumnName="currentSubUnit" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="currFuncTitle" ColumnName="currFuncTitle" />
+                <ScalarProperty Name="joiningDate" ColumnName="joiningDate" />
+                <ScalarProperty Name="confirmationDate" ColumnName="confirmationDate" />
+                <ScalarProperty Name="lastPromotionDate" ColumnName="lastPromotionDate" />
+                <ScalarProperty Name="lastTransferDate" ColumnName="lastTransferDate" />
+                <ScalarProperty Name="appraisalStartDate" ColumnName="appraisalStartDate" />
+                <ScalarProperty Name="appraisalEndDate" ColumnName="appraisalEndDate" />
+                <ScalarProperty Name="supervisorId" ColumnName="supervisorId" />
+                <ScalarProperty Name="reviewerId" ColumnName="reviewerId" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="FiscalYear" ColumnName="FiscalYear" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ap_Menu">
+            <EntityTypeMapping TypeName="AppraisalModel.Ap_Menu">
+              <MappingFragment StoreEntitySet="Ap_Menu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="MenuLevel" ColumnName="MenuLevel" />
+                <ScalarProperty Name="IsIndex" ColumnName="IsIndex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ap_RegisteredUrls">
+            <EntityTypeMapping TypeName="AppraisalModel.Ap_RegisteredUrls">
+              <MappingFragment StoreEntitySet="Ap_RegisteredUrls">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Operation" ColumnName="Operation" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ap_RoleMenu">
+            <EntityTypeMapping TypeName="AppraisalModel.Ap_RoleMenu">
+              <MappingFragment StoreEntitySet="Ap_RoleMenu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="C" ColumnName="C" />
+                <ScalarProperty Name="R" ColumnName="R" />
+                <ScalarProperty Name="U" ColumnName="U" />
+                <ScalarProperty Name="D" ColumnName="D" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ap_Roles">
+            <EntityTypeMapping TypeName="AppraisalModel.Ap_Roles">
+              <MappingFragment StoreEntitySet="Ap_Roles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsSperAdmin" ColumnName="IsSperAdmin" />
+                <ScalarProperty Name="IsBranchAdmin" ColumnName="IsBranchAdmin" />
+                <ScalarProperty Name="IsDepartmentAdmin" ColumnName="IsDepartmentAdmin" />
+                <ScalarProperty Name="IsHr" ColumnName="IsHr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppraisalMatrices">
+            <EntityTypeMapping TypeName="AppraisalModel.AppraisalMatrix">
+              <MappingFragment StoreEntitySet="AppraisalMatrix">
+                <ScalarProperty Name="rowId" ColumnName="rowId" />
+                <ScalarProperty Name="appraisalId" ColumnName="appraisalId" />
+                <ScalarProperty Name="kraTopic" ColumnName="kraTopic" />
+                <ScalarProperty Name="kpiTopic" ColumnName="kpiTopic" />
+                <ScalarProperty Name="kraWeightage" ColumnName="kraWeightage" />
+                <ScalarProperty Name="kpiWeightage" ColumnName="kpiWeightage" />
+                <ScalarProperty Name="performanceAchievement" ColumnName="performanceAchievement" />
+                <ScalarProperty Name="performanceRemarks" ColumnName="performanceRemarks" />
+                <ScalarProperty Name="variance" ColumnName="variance" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppraisalPositions">
+            <EntityTypeMapping TypeName="AppraisalModel.AppraisalPosition">
+              <MappingFragment StoreEntitySet="AppraisalPosition">
+                <ScalarProperty Name="RowId" ColumnName="RowId" />
+                <ScalarProperty Name="AppraisalLevelId" ColumnName="AppraisalLevelId" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppraisalRatings">
+            <EntityTypeMapping TypeName="AppraisalModel.AppraisalRating">
+              <MappingFragment StoreEntitySet="AppraisalRating">
+                <ScalarProperty Name="RowId" ColumnName="RowId" />
+                <ScalarProperty Name="MatrixType" ColumnName="MatrixType" />
+                <ScalarProperty Name="MatrixId" ColumnName="MatrixId" />
+                <ScalarProperty Name="AppraisalId" ColumnName="AppraisalId" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Ratingby" ColumnName="Ratingby" />
+                <ScalarProperty Name="RatingDate" ColumnName="RatingDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApprisalStatus">
+            <EntityTypeMapping TypeName="AppraisalModel.ApprisalStatu">
+              <MappingFragment StoreEntitySet="ApprisalStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="StatusGroup" ColumnName="StatusGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authentications">
+            <EntityTypeMapping TypeName="AppraisalModel.Authentication">
+              <MappingFragment StoreEntitySet="Authentication">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+                <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+                <ScalarProperty Name="WrongAttempt" ColumnName="WrongAttempt" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Isblocked" ColumnName="Isblocked" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="AppraisalModel.Branch">
+              <MappingFragment StoreEntitySet="Branches">
+                <ScalarProperty Name="BRANCH_ID" ColumnName="BRANCH_ID" />
+                <ScalarProperty Name="COMPANY_ID" ColumnName="COMPANY_ID" />
+                <ScalarProperty Name="BRANCH_NAME" ColumnName="BRANCH_NAME" />
+                <ScalarProperty Name="BRANCH_SHORT_NAME" ColumnName="BRANCH_SHORT_NAME" />
+                <ScalarProperty Name="BRANCH_CITY" ColumnName="BRANCH_CITY" />
+                <ScalarProperty Name="BRANCH_ADDRESS" ColumnName="BRANCH_ADDRESS" />
+                <ScalarProperty Name="BRANCH_PHONE" ColumnName="BRANCH_PHONE" />
+                <ScalarProperty Name="BRANCH_FAX" ColumnName="BRANCH_FAX" />
+                <ScalarProperty Name="BRANCH_POST_BOX" ColumnName="BRANCH_POST_BOX" />
+                <ScalarProperty Name="EPS" ColumnName="EPS" />
+                <ScalarProperty Name="BRANCH_MOBILE" ColumnName="BRANCH_MOBILE" />
+                <ScalarProperty Name="BRANCH_EMAIL" ColumnName="BRANCH_EMAIL" />
+                <ScalarProperty Name="BRANCH_COUNTRY" ColumnName="BRANCH_COUNTRY" />
+                <ScalarProperty Name="BRANCH_ZONE" ColumnName="BRANCH_ZONE" />
+                <ScalarProperty Name="BRANCH_DISTRICT" ColumnName="BRANCH_DISTRICT" />
+                <ScalarProperty Name="CONTACT_PERSON" ColumnName="CONTACT_PERSON" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_BY" ColumnName="MODIFIED_BY" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="AppraisalModel.Department">
+              <MappingFragment StoreEntitySet="Departments">
+                <ScalarProperty Name="DEPARTMENT_ID" ColumnName="DEPARTMENT_ID" />
+                <ScalarProperty Name="BRANCH_ID" ColumnName="BRANCH_ID" />
+                <ScalarProperty Name="DEPARTMENT_SHORT_NAME" ColumnName="DEPARTMENT_SHORT_NAME" />
+                <ScalarProperty Name="DEPARTMENT_NAME" ColumnName="DEPARTMENT_NAME" />
+                <ScalarProperty Name="PHONE_EXTENSION" ColumnName="PHONE_EXTENSION" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DEPARTMENT_HEAD" ColumnName="DEPARTMENT_HEAD" />
+                <ScalarProperty Name="MOBILE_DEPARTMENT_HEAD" ColumnName="MOBILE_DEPARTMENT_HEAD" />
+                <ScalarProperty Name="EMAIL_DEPARTMENT_HEAD" ColumnName="EMAIL_DEPARTMENT_HEAD" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_BY" ColumnName="MODIFIED_BY" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="STATIC_ID" ColumnName="STATIC_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="AppraisalModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+                <ScalarProperty Name="EMP_CODE" ColumnName="EMP_CODE" />
+                <ScalarProperty Name="SALUTATION" ColumnName="SALUTATION" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="MIDDLE_NAME" ColumnName="MIDDLE_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="OFFICE_PHONE" ColumnName="OFFICE_PHONE" />
+                <ScalarProperty Name="HOME_PHONE" ColumnName="HOME_PHONE" />
+                <ScalarProperty Name="OFFICE_MOBILE" ColumnName="OFFICE_MOBILE" />
+                <ScalarProperty Name="PERSONAL_MOBILE" ColumnName="PERSONAL_MOBILE" />
+                <ScalarProperty Name="OFFICE_FAX" ColumnName="OFFICE_FAX" />
+                <ScalarProperty Name="PERSONAL_FAX" ColumnName="PERSONAL_FAX" />
+                <ScalarProperty Name="OFFICIAL_EMAIL" ColumnName="OFFICIAL_EMAIL" />
+                <ScalarProperty Name="PERSONAL_EMAIL" ColumnName="PERSONAL_EMAIL" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="DEPARTMENT_ID" ColumnName="DEPARTMENT_ID" />
+                <ScalarProperty Name="BRANCH_ID" ColumnName="BRANCH_ID" />
+                <ScalarProperty Name="POSITION_ID" ColumnName="POSITION_ID" />
+                <ScalarProperty Name="BLOOD_GROUP" ColumnName="BLOOD_GROUP" />
+                <ScalarProperty Name="NATIONALITY" ColumnName="NATIONALITY" />
+                <ScalarProperty Name="DRIVARY_LICENCE_NUMBER" ColumnName="DRIVARY_LICENCE_NUMBER" />
+                <ScalarProperty Name="PASSPORT_NUMBER" ColumnName="PASSPORT_NUMBER" />
+                <ScalarProperty Name="BIRTH_DATE" ColumnName="BIRTH_DATE" />
+                <ScalarProperty Name="JOINED_DATE" ColumnName="JOINED_DATE" />
+                <ScalarProperty Name="MERITAL_STATUS" ColumnName="MERITAL_STATUS" />
+                <ScalarProperty Name="PAN_NUMBER" ColumnName="PAN_NUMBER" />
+                <ScalarProperty Name="MAP_CODE" ColumnName="MAP_CODE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_BY" ColumnName="MODIFIED_BY" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="TEMP_STREET_NAME" ColumnName="TEMP_STREET_NAME" />
+                <ScalarProperty Name="TEMP_WARD_NO" ColumnName="TEMP_WARD_NO" />
+                <ScalarProperty Name="TEMP_HOUSE_NO" ColumnName="TEMP_HOUSE_NO" />
+                <ScalarProperty Name="TEMP_MUNICIPALITY_VDC" ColumnName="TEMP_MUNICIPALITY_VDC" />
+                <ScalarProperty Name="TEMP_DISTRICT" ColumnName="TEMP_DISTRICT" />
+                <ScalarProperty Name="TEMP_ZONE" ColumnName="TEMP_ZONE" />
+                <ScalarProperty Name="TEMP_COUNTRY" ColumnName="TEMP_COUNTRY" />
+                <ScalarProperty Name="PER_STREET_NAME" ColumnName="PER_STREET_NAME" />
+                <ScalarProperty Name="PER_WARD_NO" ColumnName="PER_WARD_NO" />
+                <ScalarProperty Name="PER_HOUSE_NO" ColumnName="PER_HOUSE_NO" />
+                <ScalarProperty Name="PER_MUNICIPALITY_VDC" ColumnName="PER_MUNICIPALITY_VDC" />
+                <ScalarProperty Name="PER_DISTRICT" ColumnName="PER_DISTRICT" />
+                <ScalarProperty Name="PER_ZONE" ColumnName="PER_ZONE" />
+                <ScalarProperty Name="PER_COUNTRY" ColumnName="PER_COUNTRY" />
+                <ScalarProperty Name="AVAAILED_VEHICLE_FACILITY" ColumnName="AVAAILED_VEHICLE_FACILITY" />
+                <ScalarProperty Name="AVAILED_HOUSE_RENT_FACILITY" ColumnName="AVAILED_HOUSE_RENT_FACILITY" />
+                <ScalarProperty Name="IS_PENSION_HOLDER" ColumnName="IS_PENSION_HOLDER" />
+                <ScalarProperty Name="IS_DISABLED" ColumnName="IS_DISABLED" />
+                <ScalarProperty Name="PENSION_AMOUNT" ColumnName="PENSION_AMOUNT" />
+                <ScalarProperty Name="DISABLED_ID" ColumnName="DISABLED_ID" />
+                <ScalarProperty Name="EMP_STATUS" ColumnName="EMP_STATUS" />
+                <ScalarProperty Name="EMP_TYPE" ColumnName="EMP_TYPE" />
+                <ScalarProperty Name="MARITAL_STATUS" ColumnName="MARITAL_STATUS" />
+                <ScalarProperty Name="APPOINTMENT_DATE" ColumnName="APPOINTMENT_DATE" />
+                <ScalarProperty Name="EM_NAME" ColumnName="EM_NAME" />
+                <ScalarProperty Name="EM_ADDRESS" ColumnName="EM_ADDRESS" />
+                <ScalarProperty Name="EM_RELATIONSHIP" ColumnName="EM_RELATIONSHIP" />
+                <ScalarProperty Name="EM_CONTACTNO1" ColumnName="EM_CONTACTNO1" />
+                <ScalarProperty Name="EM_CONTACTNO2" ColumnName="EM_CONTACTNO2" />
+                <ScalarProperty Name="EM_CONTACTNO3" ColumnName="EM_CONTACTNO3" />
+                <ScalarProperty Name="EM_EMAIL" ColumnName="EM_EMAIL" />
+                <ScalarProperty Name="EXTENSION_NUMBER" ColumnName="EXTENSION_NUMBER" />
+                <ScalarProperty Name="WORKING_MONTH" ColumnName="WORKING_MONTH" />
+                <ScalarProperty Name="FUNCTIONAL_TITLE" ColumnName="FUNCTIONAL_TITLE" />
+                <ScalarProperty Name="PERMANENT_DATE" ColumnName="PERMANENT_DATE" />
+                <ScalarProperty Name="SYSTEM_ID" ColumnName="SYSTEM_ID" />
+                <ScalarProperty Name="Individual_Profile_update" ColumnName="Individual_Profile_update" />
+                <ScalarProperty Name="C_START_DATE" ColumnName="C_START_DATE" />
+                <ScalarProperty Name="C_END_DATE" ColumnName="C_END_DATE" />
+                <ScalarProperty Name="CARD_NUMBER" ColumnName="CARD_NUMBER" />
+                <ScalarProperty Name="GRATUITY_EFFECTIVE_DATE" ColumnName="GRATUITY_EFFECTIVE_DATE" />
+                <ScalarProperty Name="EDUCATION_DETAILS" ColumnName="EDUCATION_DETAILS" />
+                <ScalarProperty Name="OUTSOURCE_COMPANY" ColumnName="OUTSOURCE_COMPANY" />
+                <ScalarProperty Name="ATT_CARD_ID" ColumnName="ATT_CARD_ID" />
+                <ScalarProperty Name="Salary_Title" ColumnName="Salary_Title" />
+                <ScalarProperty Name="Rl_group" ColumnName="Rl_group" />
+                <ScalarProperty Name="GRADE" ColumnName="GRADE" />
+                <ScalarProperty Name="LASTPROMOTED" ColumnName="LASTPROMOTED" />
+                <ScalarProperty Name="birthdayFlag" ColumnName="birthdayFlag" />
+                <ScalarProperty Name="EM_NAME2" ColumnName="EM_NAME2" />
+                <ScalarProperty Name="EM_ADDRESS2" ColumnName="EM_ADDRESS2" />
+                <ScalarProperty Name="EM_RELATIONSHIP2" ColumnName="EM_RELATIONSHIP2" />
+                <ScalarProperty Name="EM_CONTACTNO1_2" ColumnName="EM_CONTACTNO1_2" />
+                <ScalarProperty Name="EM_CONTACTNO2_2" ColumnName="EM_CONTACTNO2_2" />
+                <ScalarProperty Name="EM_CONTACTNO3_2" ColumnName="EM_CONTACTNO3_2" />
+                <ScalarProperty Name="EM_EMAIL2" ColumnName="EM_EMAIL2" />
+                <ScalarProperty Name="SUB_DEPARTMENT" ColumnName="SUB_DEPARTMENT" />
+                <ScalarProperty Name="SUB_DEPARTMENT2" ColumnName="SUB_DEPARTMENT2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuperVisroAssignments">
+            <EntityTypeMapping TypeName="AppraisalModel.SuperVisroAssignment">
+              <MappingFragment StoreEntitySet="SuperVisroAssignment">
+                <ScalarProperty Name="SV_ASSIGN_ID" ColumnName="SV_ASSIGN_ID" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="DEPT" ColumnName="DEPT" />
+                <ScalarProperty Name="EMP" ColumnName="EMP" />
+                <ScalarProperty Name="SUPERVISOR" ColumnName="SUPERVISOR" />
+                <ScalarProperty Name="SUPERVISOR_TYPE" ColumnName="SUPERVISOR_TYPE" />
+                <ScalarProperty Name="OPERATION_TYPE" ColumnName="OPERATION_TYPE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFY_BY" ColumnName="MODIFY_BY" />
+                <ScalarProperty Name="MODIFY_DATE" ColumnName="MODIFY_DATE" />
+                <ScalarProperty Name="record_status" ColumnName="record_status" />
+                <ScalarProperty Name="POSITION" ColumnName="POSITION" />
+                <ScalarProperty Name="EMP_TYPE" ColumnName="EMP_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

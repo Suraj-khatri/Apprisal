@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="Home" url="Main.aspx" description="Home Page" >
+    <siteMapNode title="Company" url="#" description="Section One">
+      <siteMapNode title="View" url="Company/List.aspx" description="View"/>
+      <siteMapNode title="Add" url="Company/Manage.aspx" description="Add"/>
+      <siteMapNode title="Branch" url="#2" description="Section One">
+        <siteMapNode title="View" url="Company/Branch/List.aspx" description="View"/>
+        <siteMapNode title="Add" url="Company/Branch/Manage.aspx" description="Add"/>
+      </siteMapNode>
+      <siteMapNode title="Department" url="#3" description="Section One">
+        <siteMapNode title="View" url="Company/DepartmentWeb/List.aspx" description="View"/>
+        <siteMapNode title="Add" url="Company/DepartmentWeb/Manage.aspx" description="Add"/>
+      </siteMapNode>
+      <siteMapNode title="Employee" url="#4" description="Section One">
+        <siteMapNode title="View" url="Company/EmployeeWeb/List.aspx" description="View"/>
+        <!--<siteMapNode title="Add" url="Company/EmployeeWeb/Manage.aspx" description="Add"/>
+      <siteMapNode title="Education" url="Company/EmployeeWeb/EducationDetails.aspx" description="Add"/>
+      <siteMapNode title="Medical History" url="Company/EmployeeWeb/EmpMedicalHistory.aspx" description="Add"/>-->
+      <siteMapNode title="Position" url="Company/EmployeeWeb/Position.aspx" description="Add"/>
+        <!--<siteMapNode title="Family Members Medical History" url="Company/EmployeeWeb/FamilyMediicalHistory.aspx" description="Add"/>-->
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Job Applicant" url="#5" description="Section One">
+      <siteMapNode title="View" url="JobApplicant/List.aspx" description="View"/>
+      <siteMapNode title="Add" url="JobApplicant/Manage.aspx" description="Add"/>
+      <siteMapNode title="ManageStatus" url="JobApplicant/ViewStatus.aspx" description="ManageStatus"/>
+    </siteMapNode>
+    <siteMapNode title="Interview Question" url="#6" description="Section One">
+      <siteMapNode title="View" url="QuestionWeb/List.aspx" description="View"/>
+      <siteMapNode title="Add" url="QuestionWeb/Manage.aspx" description="Add"/>
+    </siteMapNode>
+    <siteMapNode title="Attendence" url="#1" description="Section One">
+      <siteMapNode title="Back Date Login" url="AttendenceWeb/BackDateLogin.aspx" description="Back Date Login"/>
+      <siteMapNode title="Detail Reports" url="AttendenceWeb/EmpDetailReports.aspx" description="Detail Reports"/>
+      <siteMapNode title="View" url="AttendenceWeb/List.aspx" description="View"/>
+      <siteMapNode title="Current Login" url="AttendenceWeb/Manage.aspx" description="Add"/>
+    </siteMapNode>
+    <siteMapNode title="Project" url="#7" description="Section One">
+      <siteMapNode title="View" url="Project/List.aspx" description="View"/>
+      <siteMapNode title="Add" url="Project/Manage.aspx" description="Add"/>
+      <siteMapNode title="Task" url="#8" description="Section One">
+        <siteMapNode title="View" url="Project/Task/List.aspx" description="View"/>
+        <siteMapNode title="Add" url="Project/Task/Manage.aspx" description="Add"/>
+        
+        <siteMapNode title="Sub Task" url="#9" description="Section One">
+          <siteMapNode title="View" url="Project/Task/SubTask/List.aspx" description="View"/>
+          <siteMapNode title="Add" url="Project/Task/SubTask/Manage.aspx" description="Add"/>
+         
+
+          <siteMapNode title="Resources" url="#11" description="Section One">
+            <siteMapNode title="View" url="Project/Task/SubTask/Resources/List.aspx" description="View"/>
+            <siteMapNode title="Add" url="Project/Task/SubTask/Resources/Manage.aspx" description="Add"/>
+            <siteMapNode title="Message Board" url="Project/MessageBoard/Manage.aspx" description="Add"/>
+            <siteMapNode title="Message View" url="Project/MessageBoard/List.aspx" description="View"/>
+            <siteMapNode title="Update Task" url="Project/TaskList/Manage.aspx" description="Update Task"/>
+            <siteMapNode title="List" url="Project/TaskList/List.aspx" description="List"/>
+            </siteMapNode>
+          <siteMapNode title="External Transfer Plan" description="Section One">
+          
+            <siteMapNode title="Add" url="ExternalTransferPlan/Manage.aspx" description="Add"/>
+            <siteMapNode title="View" url="ExternalTransferPlan/List.aspx" description="View"/>
+          </siteMapNode>
+            <siteMapNode title="Internal Transfer Plan" description="Section One">
+            <siteMapNode title="Add" url="InternalTransferPlan/Manage.aspx" description="Add"/>
+            <siteMapNode title="View" url="InternalTransferPlan/List.aspx" description="View"/>
+          </siteMapNode>
+         
+        </siteMapNode>
+      </siteMapNode>
+        </siteMapNode>
+      </siteMapNode>
+</siteMap>

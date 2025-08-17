@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{05972E1D-5AA7-4C38-8139-A2104833425C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SwiftHrManagement.Core</RootNamespace>
+    <AssemblyName>SwiftHrManagement.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseDomain.cs" />
+    <Compile Include="DomainInv\BranchCore.cs" />
+    <Compile Include="DomainInv\CompanyCore.cs" />
+    <Compile Include="DomainInv\CustomerCore.cs" />
+    <Compile Include="DomainInv\CustomerFileCore.cs" />
+    <Compile Include="DomainInv\DepartmentCore.cs" />
+    <Compile Include="DomainInv\Employee.cs" />
+    <Compile Include="DomainInv\LoginInformationCore.cs" />
+    <Compile Include="DomainInv\NumberSequenceCore.cs" />
+    <Compile Include="DomainInv\RoleCore.cs" />
+    <Compile Include="DomainInv\RoleMenuCore.cs" />
+    <Compile Include="DomainInv\StaticDataDetailCore.cs" />
+    <Compile Include="DomainInv\StaticDataTypeCore.cs" />
+    <Compile Include="DomainInv\SystemUser.cs" />
+    <Compile Include="Domain\AbstractCategory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\AbstractQuestion.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\AccountMaintainanceCore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\AdhocPaymnentCore.cs" />
+    <Compile Include="Domain\AdvanceCore.cs" />
+    <Compile Include="Domain\AppraisalDetailCore.cs" />
+    <Compile Include="Domain\AppraisalDetails.cs" />
+    <Compile Include="Domain\AppraisalFeedbackCore.cs" />
+    <Compile Include="Domain\AppraisalFeedbackDetailsCore.cs" />
+    <Compile Include="Domain\AttendenceCore.cs" />
+    <Compile Include="Domain\BankAccountsCore.cs" />
+    <Compile Include="Domain\BenefitsCore.cs" />
+    <Compile Include="Domain\BenefitsOnlyForTaxCore.cs" />
+    <Compile Include="Domain\BenefitsOnlyForTaxSettingsCore.cs" />
+    <Compile Include="Domain\BranchCore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Category.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\CMSCore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\CompanyCore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\ContributionCore.cs" />
+    <Compile Include="Domain\ContributionMadeCore.cs" />
+    <Compile Include="Domain\CustomerCore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\DeductionRuleCore.cs" />
+    <Compile Include="Domain\DeductionsCore.cs" />
+    <Compile Include="Domain\DepartmentCore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\DepartmentEventsCore.cs" />
+    <Compile Include="Domain\DonationsCore.cs" />
+    <Compile Include="Domain\Employee.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\EmployeeEducation.cs" />
+    <Compile Include="Domain\EmployeeMedical.cs" />
+    <Compile Include="Domain\ExternalTransferPlanCore.cs" />
+    <Compile Include="Domain\FamilyMembersCore.cs" />
+    <Compile Include="Domain\FiscalCore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\FiscalYearCore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\IdCardTypeCore.cs" />
+    <Compile Include="Domain\InsueanceCore.cs" />
+    <Compile Include="Domain\InsurancePremiumCore.cs" />
+    <Compile Include="Domain\InternalTransferPlanCore.cs" />
+    <Compile Include="Domain\JobDescriptionCore.cs" />
+    <Compile Include="Domain\LeaveAssignmentCore.cs" />
+    <Compile Include="Domain\LeaveRequestCore.cs" />
+    <Compile Include="Domain\LeaveType.cs" />
+    <Compile Include="Domain\LoanCore.cs" />
+    <Compile Include="Domain\LoginInformationCore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\ManualAddDeductionCore.cs" />
+    <Compile Include="Domain\OfficialCalender.cs" />
+    <Compile Include="Domain\onSiteDutyAssignmentCore.cs" />
+    <Compile Include="Domain\PastExperiencesCore.cs" />
+    <Compile Include="Domain\PayableCore.cs" />
+    <Compile Include="Domain\PerformanceAppraisalCore.cs" />
+    <Compile Include="Domain\PossibleAnswer.cs" />
+    <Compile Include="Domain\PromotionCore.cs" />
+    <Compile Include="Domain\RoleCore.cs" />
+    <Compile Include="Domain\RoleMenuCore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\SalaryLeadgerMappingCore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\StaticDataDetailCore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\StaticDataTypeCore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\SubCategory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\SubjectiveQuestion.cs" />
+    <Compile Include="Domain\SystemUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\TaxRuleCore.cs" />
+    <Compile Include="Domain\TrainingListCore.cs" />
+    <Compile Include="Domain\WFCategoryCore.cs" />
+    <Compile Include="Domain\WFJobCore.cs" />
+    <Compile Include="Domain\WFJobProcessingCore.cs" />
+    <Compile Include="Domain\WFMemberCore.cs" />
+    <Compile Include="Domain\WFUploadJobFilesCore.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\Debug\SwiftHrManagement.Core.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\SwiftHrManagement.Core.dll" />
+    <Content Include="obj\Debug\SwiftHrManagement.Core.pdb" />
+    <Content Include="SqlServerTypes\readme.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

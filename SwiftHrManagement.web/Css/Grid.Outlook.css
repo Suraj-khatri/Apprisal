@@ -1,0 +1,437 @@
+/* Telerik RadGrid Outlook Skin */
+
+/*global*/
+
+.RadGrid_Outlook
+{
+	border:1px solid #002d96;
+	background:Window;
+	color:WindowText;
+}
+
+.RadGrid_Outlook,
+.MasterTable_Outlook,
+.DetailTable_Outlook,
+.GroupPanel_Outlook table,
+.GridEditForm_Outlook table
+{
+	font:11px tahoma,verdana,sans-serif;
+}
+
+.MasterTable_Outlook,
+.DetailTable_Outlook
+{
+	border-collapse:separate !important;
+}
+
+.GridRow_Outlook td,
+.GridAltRow_Outlook td,
+.GridEditRow_Outlook td,
+.GridFooter_Outlook td,
+.GridGroupFooter_Outlook td,
+.GridFilterRow_Outlook td,
+.GroupHeader_Outlook td
+{
+	padding-left:4px;
+	padding-right:4px;
+}
+
+.RadGrid_Outlook .rgAdd,
+.RadGrid_Outlook .rgRefresh,
+.RadGrid_Outlook .rgEdit,
+.RadGrid_Outlook .rgDel,
+.RadGrid_Outlook .rgFilter,
+.RadGrid_Outlook .rgPagePrev,
+.RadGrid_Outlook .rgPageNext,
+.RadGrid_Outlook .rgExpand,
+.RadGrid_Outlook .rgCollapse,
+.RadGrid_Outlook .rgSortAsc,
+.RadGrid_Outlook .rgSortDesc,
+.RadGrid_Outlook .rgUpdate,
+.RadGrid_Outlook .rgCancel
+{
+	width:16px;
+	height:16px;
+	border:0;
+	padding:0;
+	background-color:transparent;
+	background-image:url('Grid/sprite.gif');
+	background-repeat:no-repeat;
+	vertical-align:middle;
+	cursor:pointer;
+}
+
+.GroupPanelItems_Outlook input,
+.GridCommandRow_Outlook img,
+.GridHeader_Outlook input,
+.GridFilterRow_Outlook img,
+.GridPager_Outlook img
+{
+	vertical-align:middle;
+}
+
+/*header*/
+
+.GridHeaderDiv_Outlook
+{
+	background:#f6f6f6 url('Grid/sprite.gif') 0 -716px repeat-x;
+}
+
+.GridHeader_Outlook,
+.ResizeHeader_Outlook
+{
+	border:1px solid;
+	border-color:#f2f0ee #75736e #75736e #f2f0ee;
+	background:ButtonFace;
+	padding:3px;
+	font-weight:normal;
+	text-align:left;
+}
+
+.GridHeader_Outlook a
+{
+	color:WindowText;
+	text-decoration:none;
+}
+
+.ResizeHeader_Outlook
+{
+	background:ButtonFace url('Grid/sprite.gif') center -199px no-repeat;
+}
+
+/*rows*/
+
+.GridRow_Outlook td,
+.GridAltRow_Outlook td,
+.GridEditRow_Outlook td,
+.GridFooter_Outlook td,
+.GridGroupFooter_Outlook td
+{
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+.GridRow_Outlook td,
+.GridAltRow_Outlook td,
+.GridFooter_Outlook td,
+.GridGroupFooter_Outlook td
+{
+	border-top:1px solid #fff;
+	border-bottom:1px solid #eae9e1;
+}
+
+.GridRow_Outlook a,
+.GridAltRow_Outlook a,
+.GridEditRow_Outlook a,
+.GridFooter_Outlook a,
+.GridGroupFooter_Outlook a,
+.GridEditForm_Outlook a
+{
+	color:WindowText;
+}
+
+.SelectedRow_Outlook
+{
+	background:Highlight;
+	color:HighlightText;
+}
+
+.SelectedRow_Outlook td
+{
+	border-color:Highlight;
+}
+
+.GridRowOver_Outlook,
+.ActiveRow_Outlook
+{
+	background:InfoBackground;
+	color:InfoText;
+}
+
+.GridEditRow_Outlook
+{
+	background:Menu;
+	color:MenuText;
+}
+
+.GridEditRow_Outlook td
+{
+	border-color:Menu;
+}
+
+/*footer*/
+
+.GridFooterDiv_Outlook,
+.GridFooter_Outlook,
+.GridGroupFooter_Outlook
+{
+	background:#f6f6f6;
+	color:#333;
+}
+
+/*status*/
+
+.GridPager_Outlook span
+{
+	color:#666;
+}
+
+/*pager*/
+
+.GridPager_Outlook
+{
+	background:ButtonFace;
+	line-height:20px;
+}
+
+.GridPager_Outlook td
+{
+	border-top:1px solid #808080;
+	padding:3px 5px;
+}
+
+.GridPager_Outlook div span,
+.GridPager_Outlook a,
+.GridPager_Outlook .sliderPagerLabel_Outlook
+{
+	color:WindowText;
+}
+
+.PagerLeft_Outlook
+{
+	float:left;
+}
+
+.PagerRight_Outlook
+{
+	float:right;
+}
+
+.PagerCenter_Outlook
+{
+	text-align:center;
+}
+
+.PagerCenter_Outlook span
+{
+	vertical-align:middle;
+}
+
+.RadGrid_Outlook .rgPagePrev
+{
+	background-position:5px -393px;
+}
+
+.RadGrid_Outlook .rgPageNext
+{
+	background-position:-21px -393px;
+}
+
+/*sorting, reordering*/
+
+.GridHeader_Outlook .rgSortAsc
+{
+	background-position:-21px -330px;
+	height:10px;
+}
+
+.GridHeader_Outlook .rgSortDesc
+{
+	background-position:5px -328px;
+	height:10px;
+}
+
+.TopReorderIndicator_Outlook,
+.BottomReorderIndicator_Outlook
+{
+	width:9px !important;
+	height:12px !important;
+	margin-left:-4px;
+	background:url('Grid/sprite.gif') 0 -300px no-repeat;
+}
+
+.BottomReorderIndicator_Outlook
+{
+	background-position:-23px -300px;
+}
+
+/*filtering*/
+
+.GridFilterRow_Outlook
+{
+	background:#f6f6f6;
+}
+
+.GridFilterRow_Outlook td
+{
+	border-bottom:1px solid #eae9e1;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+
+.RadGrid_Outlook .rgFilter
+{
+	background-position:2px -424px;
+}
+
+.GridFilterRow_Outlook input[type="text"]
+{
+	border:1px solid ButtonFace;
+	padding:2px;
+	background:Window;
+	font:11px arial,sans-serif;
+	color:WindowText;
+	vertical-align:middle;
+}
+
+/*grouping*/
+
+.GroupPanel_Outlook
+{
+	background:#043994 url('Grid/sprite.gif') 0 0 repeat-x;
+	color:#fff;
+}
+
+.GroupPanel_Outlook .rgSortAsc
+{
+	background-position:-21px -327px;
+}
+
+.GroupPanel_Outlook .rgSortDesc
+{
+	background-position:5px -326px;
+}
+
+.GroupPanel_Outlook td
+{
+	padding:3px 4px 5px;
+}
+
+.GroupPanel_Outlook td td
+{
+	padding:1px;
+}
+
+.GroupPanelItems_Outlook
+{
+	white-space:nowrap;
+}
+
+.GroupHeader_Outlook
+{
+	background:#fff;
+}
+
+.GroupHeader_Outlook td
+{
+	border-bottom:2px solid #7ba4e0;
+	padding:4px 4px;
+	color:#3768b9;
+	font-weight:bold;
+}
+
+.RadGrid_Outlook .rgExpand
+{
+	background-position:2px -457px;
+}
+
+.RadGrid_Outlook .rgCollapse
+{
+	background-position:2px -489px;
+}
+
+.GroupHeader_Outlook td div
+{
+	top:-0.5em;
+}
+
+.GroupHeader_Outlook td div div
+{
+	top:0;
+}
+
+/*editing*/
+
+.GridEditForm_Outlook
+{
+	border-bottom:1px solid #7ba4e0;
+}
+
+.GridEditForm_Outlook input[type="text"],
+.GridEditForm_Outlook textarea
+{
+	border:solid 1px ButtonFace;
+	padding:2px;
+	background:Window;
+	font:11px arial,sans-serif;
+	color:WindowText;
+}
+
+.RadGrid_Outlook .rgUpdate
+{
+	background-position:2px -618px;
+}
+
+.RadGrid_Outlook .rgCancel
+{
+	background-position:2px -650px;
+}
+
+/*hierarchy*/
+
+.DetailTable_Outlook
+{
+	border:1px solid #002d96;
+	border-right:0;
+}
+
+/*command row*/
+
+.GridCommandRow_Outlook
+{
+	background:#f6f6f6;
+}
+
+.GridCommandRow_Outlook a
+{
+	color:#000;
+}
+
+.RadGrid_Outlook .rgAdd
+{
+	background-position:2px -683px;
+}
+
+.RadGrid_Outlook .rgRefresh
+{
+	background-position:5px -521px;
+}
+
+.RadGrid_Outlook .rgEdit
+{
+	background-position:2px -554px;
+}
+
+.RadGrid_Outlook .rgDel
+{
+	background-position:2px -587px;
+}
+
+/*rtl*/
+
+.RadGridRTL_Outlook .GridHeader_Outlook,
+.RadGridRTL_Outlook .ResizeHeader_Outlook
+{
+	text-align:right;
+}
+
+.RadGridRTL_Outlook .PagerLeft_Outlook,
+.RadGridRTL_Outlook .GridPager_Outlook .radslider
+{
+	float:right;
+}
+
+.RadGridRTL_Outlook .PagerRight_Outlook
+{
+	float:left;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8979fa4c5ecc443380c6a2fa5ceff99e" Name="Diagram1">
+        <EntityTypeShape EntityType="AppraisalModel.Ap_AappInitation" Width="1.5" PointX="5.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppraisalModel.Ap_Menu" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppraisalModel.Ap_RegisteredUrls" Width="1.5" PointX="5.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppraisalModel.Ap_RoleMenu" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppraisalModel.Ap_Roles" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppraisalModel.AppraisalMatrix" Width="1.5" PointX="8" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppraisalModel.AppraisalPosition" Width="1.5" PointX="7.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppraisalModel.AppraisalRating" Width="1.5" PointX="9.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppraisalModel.ApprisalStatu" Width="1.5" PointX="10.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppraisalModel.Authentication" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppraisalModel.Branch" Width="1.5" PointX="7.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppraisalModel.Department" Width="1.5" PointX="9.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppraisalModel.Employee" Width="1.5" PointX="0.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppraisalModel.SuperVisroAssignment" Width="1.5" PointX="2.75" PointY="13" IsExpanded="true" />
+        <AssociationConnector Association="AppraisalModel.fk_appraisalInitation" ManuallyRouted="false" />
+        <AssociationConnector Association="AppraisalModel.FK_MenudForMenurole" ManuallyRouted="false" />
+        <AssociationConnector Association="AppraisalModel.FK_MenuRoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppraisalModel.FK_Auth_RoleId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

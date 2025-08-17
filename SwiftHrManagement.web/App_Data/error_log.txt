@@ -1,0 +1,9 @@
+System.Data.OleDb.OleDbException (0x80004005): The Microsoft Access database engine could not find the object 'C:\Program Files\IIS Express\System.IO.MemoryStream'. Make sure the object exists and that you spell its name and the path name correctly. If 'C:\Program Files\IIS Express\System.IO.MemoryStream' is not a local object, check your network connection or contact the server administrator.
+   at System.Data.OleDb.OleDbConnectionInternal..ctor(OleDbConnectionString constr, OleDbConnection connection)
+   at System.Data.OleDb.OleDbConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionInternal.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.OleDb.OleDbConnection.Open()
+   at SwiftHrManagement.web.Company.EmployeeWeb.UploadInfo.btnUploadEmp_Click(Object sender, EventArgs e) in E:\Working Project\Appraisal-HRMIS\SwiftHrManagement.web\Company\EmployeeWeb\UploadInfo.aspx.cs:line 240

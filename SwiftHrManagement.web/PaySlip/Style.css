@@ -1,0 +1,55 @@
+				.lblhighlight {
+				font-weight: bold;
+				font-size: 24px;
+				color: #363;
+				}
+				.bluetext {
+				color: #00F;
+				}
+				
+				.redtext {
+				color: red;
+				}
+				.greentext{
+				color:#060;
+				
+				}
+				
+				.greentext1{
+				color:#090;
+				font-weight:bold;
+				font-size:20px;	
+				}
+				
+				.greentext2{
+						color:#090;
+				
+				
+				padding-left: 65px;
+					}
+				.Heading {
+				color: #090;
+				font-size: 30px;
+				font-weight: bold;
+				padding-left:400px;
+				}
+				
+				img{
+				margin-left:140px;
+				
+				}
+				
+				.bluetextwithmargin{
+				color: #00F;
+				padding-left:22px;
+				}
+				
+				.greentextwithmargin{
+				color: #090;
+				padding-left:22px;
+				}
+				
+				.amountalign
+				{
+					padding-left: 65px;
+				}

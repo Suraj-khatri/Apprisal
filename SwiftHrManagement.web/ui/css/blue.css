@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+body,
+.sticky-header .logo,
+.states-info .blue-bg,
+.btn-primary,
+footer{
+    background: #0073AB;
+}
+.custom-nav > li > a:hover, 
+.custom-nav > li > a:active,
+.custom-nav > li.menu-list > a:hover,
+.custom-nav > li.nav-active > a,
+.custom-nav .sub-menu-list > li > a:hover,
+.custom-nav > li.nav-active > a:hover{
+    background-color: #005890;
+    text-transform:capitalize;
+}
+.custom-nav .sub-menu-list > li > a:hover,
+.custom-nav .sub-menu-list
+{
+    background: #005890;
+    text-transform:capitalize;
+}
+.header-section
+{
+    background:#21AB47
+}

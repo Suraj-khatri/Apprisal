@@ -1,0 +1,1 @@
+ALTER TABLE appraisalcomment ADD Freeze CHAR(1) NULL

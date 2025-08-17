@@ -1,0 +1,197 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Apprisal.master.cs" Inherits="SwiftHrManagement.web.Apprisal" %>
+
+<%@ Register Src="UserControl/Left.ascx" TagName="Left" TagPrefix="uc1" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="icon" href="fevicon.png" type="image/png" sizes="16x16">
+    <title>Performance Management System(PMS)</title>
+    <%--<link href="/ui/css/bootstrap.css" rel="stylesheet" />--%>
+    <link href="/ui/css/blue.css" rel="stylesheet" />
+    <%--<link href="/Angular/css/select2.min.css" rel="stylesheet" />--%>
+    <link href="/Theme/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Theme/bower_components/Ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/Theme/dist/css/AdminLTE.min.css" rel="stylesheet">
+    <link href="/Theme/dist/css/skins/_all-skins.min.css" rel="stylesheet">
+    <link href="~/ui/css/sweetalert.css" rel="stylesheet" />
+    <link href="Theme/bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="Theme/bower_components/bootstrap/dist/css/Custom.css" rel="stylesheet" />
+     <link href="/Theme/bower_components/dist/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <style>
+        .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a {
+            color: #444444;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 10px;
+        }
+
+        .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a {
+            color: #444444;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 10px;
+        }
+
+        .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a, .navbar-nav > .messages-menu > .dropdown-menu > li .menu > li > a, .navbar-nav > .tasks-menu > .dropdown-menu > li .menu > li > a {
+            display: block;
+            white-space: nowrap;
+            border-bottom: 1px solid #f4f4f4;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
+        </asp:ScriptManager>
+
+
+        <div class="wrapper">
+
+            <header class="main-header">
+                <!-- Logo -->
+                <a href="/DashBoard.aspx?q=HR" class="logo">
+
+                    <span class="logo-mini"><b>PMS</b></span>
+
+                    <span class="logo-lg"><b>PMS</b></span>
+                </a>
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top">
+
+                    <a href="/#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                    </a>
+
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-bell-o"></i>
+                                    <span class="label label-danger">
+                                        <asp:Label ID="count" runat="server"></asp:Label></span>
+                                </a>
+                                <ul class="dropdown-menu list-group">
+                                    <div style="background:#f7f7f7" runat="server" ID="noti"></div>
+                                
+                                    <li class="list-group-item list-group-item-action" runat="server" ID="LastNoti">
+                                          <asp:Button runat="server" OnClick="ClearNotification" CssClass="btn btn-danger btn-xs center" Text="Clear Notification" />
+                                    </li>
+                                
+                                </ul>
+                                
+                            </li>
+
+
+
+
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                                    <span class="hidden-xs">
+                                        <asp:Label ID="TxtUserName" runat="server" CssClass="welcomeUser"></asp:Label></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                                    <li><a href="<%=ResolveUrl("/Report/EmployeeDetails/employeeHistory.aspx")%>"><i class="fa fa-user"></i><span>Profile</span></a></li>
+                                    <li><a href="<%=ResolveUrl("/SysUserInv/ChangePassword.aspx") %>"><i class="fa fa-cog"></i><span>Change Password</span></a></li>
+                                    <li><a href="<%=ResolveUrl("SignOut.aspx")%>"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
+                                </ul>
+                            </li>
+                            <!-- Control Sidebar Toggle Button -->
+
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+
+                    <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu" data-widget="tree" id="Menu" runat="server">
+                        <li class="header">MAIN NAVIGATION</li>
+                        <li class="active treeview">
+
+                            <asp:Button ID="btnClick" runat="server" Style="display: none"
+                                OnClick="btnClick_Click" />
+                            <asp:HiddenField ID="mainMenu1" runat="server" />
+                            <asp:HiddenField ID="mainMenu" runat="server" />
+                            <asp:HiddenField ID="subMenu1" runat="server" />
+                            <asp:HiddenField ID="subMenu" runat="server" />
+                        </li>
+                    </ul>
+
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <section class="content">
+                    <asp:ContentPlaceHolder ID="MainPlaceHolder" runat="server">
+                    </asp:ContentPlaceHolder>
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+            </footer>
+
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark" style="display: none;">
+                <!-- Create the tabs -->
+                <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                    <li><a href="~/Theme/#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                    <li><a href="~/Theme/#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+                </ul>
+                <!-- Tab panes -->
+
+
+
+
+            </aside>
+            <asp:Button ID="mainButton" runat="server" OnClick="mainButton_Click" Style="display: none;" />
+            <div class="control-sidebar-bg"></div>
+        </div>
+
+        
+        <script src="<%=ResolveUrl("Theme/bower_components/jquery/dist/jquery.min.js") %>"></script>
+        <script src="<%=ResolveUrl("Theme/bower_components/jquery-ui/jquery-ui.min.js") %>"></script>
+        <script src="<%=ResolveUrl("Theme/bower_components/bootstrap/dist/js/bootstrap.min.js") %>"></script>
+        <script src="<%=ResolveUrl("Theme/bower_components/jquery-slimscroll/jquery.slimscroll.min.js") %>"></script>
+        <script src="<%=ResolveUrl("ui/js/sweetalert.min.js")%>"></script>
+        <script src="<%=ResolveUrl("Theme/bower_components/fastclick/lib/fastclick.js") %>"></script>
+        <script src="<%=ResolveUrl("Theme/dist/js/adminlte.min.js") %>"></script>
+        <script src="<%=ResolveUrl("/Theme/bower_components/dist/js/bootstrap-datepicker.js")%>" ></script>
+   
+    <script>
+        $(document).ready(function () {
+            $('.datepicker').datepicker();
+            $("#myModal").modal('show');
+        })
+    </script>
+        
+        <script>
+            /** add active class and stay opened when selected */
+            var url = window.location;
+
+            // for sidebar menu entirely but not cover treeview
+            $('ul.sidebar-menu a').filter(function () {
+                return this.href == url;
+            }).parent().addClass('active');
+
+            // for treeview
+            $('ul.treeview-menu a').filter(function () {
+                return this.href == url;
+            }).parentsUntil(".sidebar-menu > .treeview-menu").addClass('active');
+        </script>
+    </form>
+</body>
+</html>
+
+

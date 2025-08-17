@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8772CF85-04F6-4D44-85D1-77F2F9974151}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SwiftHrManagement.ReportEnging</RootNamespace>
+    <AssemblyName>SwiftHrManagement.ReportEnging</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AttendanceReports\AttendanceReports.cs" />
+    <Compile Include="DynamicReport\DynamicRpt.cs" />
+    <Compile Include="DynamicReport\DynamicRptQuery.cs" />
+    <Compile Include="EmployeeMovements\EmployeePastWorkHistory.cs" />
+    <Compile Include="EmployeeMovements\ExternalTransferPlan\ExternalTransferPlanParameterised.cs" />
+    <Compile Include="EmployeeMovements\ExternalTransferPlan\ExternalTransferPlanRpt.cs" />
+    <Compile Include="EmployeeMovements\InternalTransferPlan\InternalTransferPlanRpt.cs" />
+    <Compile Include="EmployeeReport\EmpDetlRpt.cs" />
+    <Compile Include="Leave\LeaveSummaryReport.cs" />
+    <Compile Include="loanandadvanceReport\LoanAndadvence.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrainingProgram\TrainingProgByEmpOrEmployees.cs" />
+    <Compile Include="TrainingProgram\TrainingProgramUpComingOrPlanned.cs" />
+    <Compile Include="TrainingProgram\TrainingSummary.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SwiftHrManagement.Core\SwiftHrManagement.Core.csproj">
+      <Project>{05972E1D-5AA7-4C38-8139-A2104833425C}</Project>
+      <Name>SwiftHrManagement.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SwiftHrManagement.DAL\SwiftHrManagement.DAL.csproj">
+      <Project>{6CD20C8F-132A-4A16-8BEA-FD5BBA6483F5}</Project>
+      <Name>SwiftHrManagement.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\SwiftHrManagement.Core.dll" />
+    <Content Include="bin\Debug\SwiftHrManagement.Core.pdb" />
+    <Content Include="bin\Debug\SwiftHrManagement.DAL.dll" />
+    <Content Include="bin\Debug\SwiftHrManagement.DAL.pdb" />
+    <Content Include="bin\Debug\SwiftHrManagement.ReportEnging.dll" />
+    <Content Include="bin\Debug\SwiftHrManagement.ReportEnging.pdb" />
+    <Content Include="bin\Release\SwiftHrManagement.ReportEnging.dll" />
+    <Content Include="bin\Release\SwiftHrManagement.ReportEnging.pdb" />
+    <Content Include="obj\Debug\SwiftHrManagement.ReportEnging.dll" />
+    <Content Include="obj\Debug\SwiftHrManagement.ReportEnging.pdb" />
+    <Content Include="obj\Release\SwiftHrManagement.ReportEnging.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\SwiftHrManagement.ReportEnging.dll" />
+    <Content Include="obj\Release\SwiftHrManagement.ReportEnging.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\ResolveAssemblyReference.cache" />
+    <None Include="obj\Debug\SwiftHrManagement.ReportEnging.pdb.r16" />
+    <None Include="obj\Debug\SwiftHrManagement.ReportEnging.pdb.r29" />
+    <None Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\Refactor\" />
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="obj\Release\Refactor\" />
+    <Folder Include="obj\Release\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
